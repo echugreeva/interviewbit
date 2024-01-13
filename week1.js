@@ -48,3 +48,21 @@ module.exports = {
        }
    };
    
+
+   //Return the string A after reversing the string word by word.
+
+//    A sequence of non-space characters constitutes a word.
+//    Your reversed string should not contain leading or trailing spaces, even if it is present in the input string.
+//    If there are multiple spaces between words, reduce them to a single space in the reversed string.
+module.exports = { 
+    //param A : string
+    //return a strings
+       solve : function(A){ 
+           let newArr = A.split(' ').reverse()
+           // console.log(newArr)
+           let filteredArr = newArr.filter(e=>e.length>0)
+           let newStr = filteredArr.join(' ')
+           return newStr
+       }
+   };
+   
