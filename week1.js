@@ -66,3 +66,30 @@ module.exports = {
        }
    };
    
+//    Given a string A consisting only of '(' and ')'.
+
+//    You need to find whether parantheses in A is balanced or not ,if it is balanced then return 1 else return 0.
+module.exports = { 
+    //param A : string
+    //return an integer
+       solve : function(A){
+           let arr = A.split('')
+           let filtered = arr.filter(e=>e==='('||e===')')
+           if (filtered[0]===')') {return 0}
+           let balanced=0
+           for (i=0; i<filtered.length; i++) {
+               if (filtered[i]==='(') {
+                   balanced = balanced +1;
+               } else if (filtered[i]===')'){
+                   balanced = balanced -1;
+               }
+           }
+           if(balanced===0) {
+               return 1
+           }
+            else {
+                return 0
+            }
+       }
+   };
+   
