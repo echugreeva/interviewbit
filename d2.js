@@ -46,3 +46,53 @@ module.exports = {
         // return newArray.length
 	}
 };
+
+// Given a linked list A, swap every two adjacent nodes and return its head.
+
+// NOTE: Your algorithm should use only constant space. You may not modify the values in the list; only nodes themselves can be changed.
+
+// Definition for singly-linked list.
+//    function Node(data){
+//      this.data = data
+//      this.next = null
+//    }
+
+module.exports = {
+    //param A : head node of linked list
+    //return the head node in the linked list
+    swapPairs: function (A) {
+         if (A===null) {
+        return A
+    }
+    
+    if (A.next===null){
+        return A
+    }
+       let current = A
+       let newHead = A.next
+       let prev=null;
+       
+        while (current !== null && current.next !== null) {
+            const first = current;
+            const second = current.next;
+
+            // Swapping
+            first.next = first.next.next; //second.next
+            second.next = first; //curr
+            
+            if(prev){
+                prev.next = second
+            }
+            
+            prev = first;
+            current = first.next
+            
+
+            // Move to the next pair
+        
+        }
+
+        return newHead;
+
+    }
+};
