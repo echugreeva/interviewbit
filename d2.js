@@ -96,3 +96,38 @@ module.exports = {
 
     }
 };
+
+// Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+
+// Definition for a  binary tree node
+//    function TreeNode(data){
+//      this.data = data
+//      this.left = null
+//      this.right = null
+//    }
+
+module.exports = { 
+    //param A : root node of tree
+    //return a array of array of integers
+       levelOrder : function(A){
+           
+           if (A==null){
+               return
+           }
+           let ar = [];
+           let q = [A]
+           while(q[0]){
+               let length = q.length;
+               let row = [];
+               for (let i=0; i<length; i++){
+                   let curr = q.shift();
+                   row.push(curr.data);
+                    if (curr.left) q.push(curr.left)
+                   if (curr.right) q.push(curr.right)
+               }
+               ar.push(row)
+           }
+           return ar
+       }
+       
+   };
